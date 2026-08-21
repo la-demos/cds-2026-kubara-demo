@@ -1,0 +1,75 @@
+kube-prometheus-stack:
+  prometheusOperator:
+    resources:
+      requests:
+        memory: 100Mi
+      limits:
+        memory: 100Mi
+    prometheusConfigReloader:
+      resources:
+        requests:
+          memory: 100Mi
+        limits:
+          memory: 100Mi
+  prometheus-node-exporter:
+    resources:
+      requests:
+        memory: 100Mi
+      limits:
+        memory: 100Mi
+  prometheus:
+    ingress:
+      enabled: true
+      annotations: {}
+      tls: []
+    prometheusSpec:
+      resources:
+        requests:
+          memory: 384Mi
+        limits:
+          memory: 384Mi
+  alertmanager:
+    ingress:
+      enabled: true
+      annotations: {}
+      tls: []
+    alertmanagerSpec:
+      resources:
+        requests:
+          memory: 128Mi
+        limits:
+          memory: 128Mi
+  grafana:
+    ingress:
+      enabled: true
+      annotations: {}
+      tls: []
+    resources:
+      requests:
+        memory: 256Mi
+      limits:
+        memory: 256Mi
+    initChownData:
+      resources:
+        requests:
+          memory: 128Mi
+        limits:
+          memory: 128Mi
+    sidecar:
+      resources:
+        requests:
+          memory: 100Mi
+        limits:
+          memory: 100Mi
+  kube-state-metrics:
+    resources:
+      requests:
+        memory: 100Mi
+      limits:
+        memory: 100Mi
+prometheus-blackbox-exporter:
+  resources:
+    requests:
+      memory: 100Mi
+    limits:
+      memory: 100Mi

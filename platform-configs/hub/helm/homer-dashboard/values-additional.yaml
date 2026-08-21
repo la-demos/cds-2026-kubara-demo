@@ -1,0 +1,36 @@
+ingress:
+  enabled: true
+  annotations: {}
+
+dashboardConfig:
+  # Services
+  # First level array represent a group.
+  # Leave only a "items" key if not using group (group name, icon & tagstyle are optional, section separation will not be displayed).
+  services:
+    - name: "Tools"
+      items:
+        - name: "argocd"
+          logo: "/assets/tools/argocd.png"
+          url: "/argocd/"
+          subtitle: "GitOps Deployment Dashboard"
+          target: "_blank"
+        - name: "grafana"
+          logo: "/assets/tools/grafana.png"
+          url: "/grafana/"
+          subtitle: "Monitoring Dashboards"
+          target: "_blank"
+        - name: "prometheus"
+          logo: "/assets/tools/prometheus.png"
+          url: "/prometheus/"
+          subtitle: "Prometheus Dashboard"
+          target: "_blank"
+        - name: "alertmanager"
+          logo: "/assets/tools/alertmanager.png"
+          url: "/alertmanager/"
+          subtitle: "Alertmanager Dashboard"
+          target: "_blank"
+    - name: "DevOps Links"
+      items:
+        - name: "Secretsmanager"
+          logo: "/assets/tools/secretsmanager.png"
+          url: "https://openbao.192.168.97.3.traefik.me"

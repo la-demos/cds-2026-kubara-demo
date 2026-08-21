@@ -1,0 +1,10 @@
+traefik:
+  api:
+    basePath: /traefik
+  ingressRoute:
+    dashboard:
+      enabled: true
+      entryPoints:
+        - websecure
+      matchRule: Host(`192.168.97.3.traefik.me`) && PathPrefix(`/traefik`)
+      tls: {}

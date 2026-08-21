@@ -1,0 +1,15 @@
+policy-reporter:
+  ui:
+    enabled: true
+    ingress:
+      enabled: true
+      tls: []
+      annotations:
+        traefik.ingress.kubernetes.io/app-root: /kyverno/#/
+        traefik.ingress.kubernetes.io/router.middlewares: kyverno-policy-reporter-strip-kyverno-prefix@kubernetescrd
+middleware:
+  name: strip-kyverno-prefix
+  namespace: kyverno-policy-reporter
+  stripPrefix:
+    prefixes:
+      - /kyverno
