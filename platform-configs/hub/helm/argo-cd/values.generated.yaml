@@ -50,30 +50,6 @@ bootstrapValues:
         reloader: "disabled"
         traefik: "disabled"
         velero: "disabled"
-    - name: kubara-spoke-2
-      project: hub-local
-      secretStoreRef:
-        kind: ClusterSecretStore
-        name: hub-local
-      remoteRef:
-        remoteKey: hub/local/argocd/kubara-spoke-2-prod
-        remoteKeyProperty: kubeconfig
-      additionalLabels:
-        cert-manager: "disabled"
-        external-dns: "disabled"
-        external-secrets: "enabled"
-        kube-prometheus-stack: "disabled"
-        kyverno: "disabled"
-        kyverno-policies: "disabled"
-        kyverno-policy-reporter: "disabled"
-        loki: "disabled"
-        longhorn: "disabled"
-        metallb: "disabled"
-        metrics-server: "disabled"
-        oauth2-proxy: "disabled"
-        reloader: "disabled"
-        traefik: "disabled"
-        velero: "disabled"
 
 
   applicationSets:
