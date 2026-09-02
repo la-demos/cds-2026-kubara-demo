@@ -113,54 +113,54 @@ clusters:
           backupStorage:
             create: true
             region: eu01
-  # - name: kubara-spoke-2
-  #   stage: prod
-  #   type: spoke
-  #   dnsName: kubara-spoke-2-control-plane
-  #   ingressClassName: traefik
-  #   argocd:
-  #     selfManaged: disabled
-  #     repo: {}
-  #   catalogs:
-  #     - oci://ghcr.io/kubara-io/catalogs/general:2.0.0
-  #   services:
-  #     cert-manager:
-  #       status: disabled
-  #       config:
-  #         clusterIssuer:
-  #           email: yourname@your-domain.de
-  #           name: letsencrypt-staging
-  #           server: https://acme-staging-v02.api.letsencrypt.org/directory
-  #     external-dns:
-  #       status: disabled
-  #     external-secrets:
-  #       status: enabled
-  #     kube-prometheus-stack:
-  #       status: disabled
-  #     kyverno:
-  #       status: disabled
-  #     kyverno-policies:
-  #       status: disabled
-  #     kyverno-policy-reporter:
-  #       status: disabled
-  #     loki:
-  #       status: disabled
-  #     longhorn:
-  #       status: disabled
-  #     metallb:
-  #       status: disabled
-  #     metrics-server:
-  #       status: disabled
-  #     oauth2-proxy:
-  #       status: disabled
-  #     reloader:
-  #       status: disabled
-  #     traefik:
-  #       status: disabled
-  #     velero:
-  #       status: disabled
-  #       config:
-  #         backupMode: fs-backup
-  #         backupStorage:
-  #           create: true
-  #           region: eu01
+  - name: kubara-spoke-2
+    stage: prod
+    type: spoke
+    dnsName: kubara-spoke-2-control-plane
+    ingressClassName: traefik
+    argocd:
+      selfManaged: disabled
+      repo: {}
+    catalogs:
+      - oci://ghcr.io/kubara-io/catalogs/general:2.0.0
+    services:
+      cert-manager:
+        status: disabled
+        config:
+          clusterIssuer:
+            email: yourname@your-domain.de
+            name: letsencrypt-staging
+            server: https://acme-staging-v02.api.letsencrypt.org/directory
+      external-dns:
+        status: disabled
+      external-secrets:
+        status: enabled
+      kube-prometheus-stack:
+        status: disabled
+      kyverno:
+        status: disabled
+      kyverno-policies:
+        status: disabled
+      kyverno-policy-reporter:
+        status: disabled
+      loki:
+        status: disabled
+      longhorn:
+        status: disabled
+      metallb:
+        status: disabled
+      metrics-server:
+        status: disabled
+      oauth2-proxy:
+        status: disabled
+      reloader:
+        status: disabled
+      traefik:
+        status: disabled
+      velero:
+        status: disabled
+        config:
+          backupMode: fs-backup
+          backupStorage:
+            create: true
+            region: eu01
