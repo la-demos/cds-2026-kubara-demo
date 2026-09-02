@@ -1,0 +1,71 @@
+bootstrapValues:
+  projects:
+    hub-local:
+      sourceRepos:
+        - "https://github.com/la-demos/cds-2026-kubara-demo.git"
+        - "https://charts.external-secrets.io/"
+        - "https://charts.jetstack.io"
+        - "https://prometheus-community.github.io/helm-charts"
+        - "ghcr.io/traefik/helm"
+        - "oci://ghcr.io/traefik/helm"
+dexRestarter:
+  enabled: false
+argo-cd:
+  dex:
+    enabled: false
+  redis:
+    resources:
+      requests:
+        memory: 128Mi
+      limits:
+        memory: 128Mi
+  applicationSet:
+    resources:
+      requests:
+        memory: 256Mi
+      limits:
+        memory: 256Mi
+  repoServer:
+    resources:
+      requests:
+        memory: 512Mi
+      limits:
+        memory: 512Mi
+    volumeMounts:
+      - name: host-ca-certificates
+        mountPath: /etc/ssl/certs/ca-certificates.crt
+        readOnly: true
+    volumes:
+      - name: host-ca-certificates
+        hostPath:
+          path: /etc/ssl/certs/ca-certificates.crt
+          type: File
+  controller:
+    resources:
+      requests:
+        memory: 1000Mi
+      limits:
+        memory: 1000Mi
+  server:
+    resources:
+      requests:
+        memory: 256Mi
+      limits:
+        memory: 256Mi
+    ingressGrpc:
+      enabled: false
+      annotations:
+        cert-manager.io/cluster-issuer: ""
+      tls: false
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: ""
+      tls: false
+  configs:
+    cm:
+      url: http://192.168.97.3.traefik.me/argocd
+    rbac:
+      policy.default: role:admin
+      policy.csv: ""
